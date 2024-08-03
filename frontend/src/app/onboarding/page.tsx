@@ -1,6 +1,4 @@
-import { Progress } from "@nextui-org/react";
-
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Card, CardBody, CardHeader, Progress } from "@nextui-org/react";
 import { randomInt } from "crypto";
 
 type Task = {
@@ -10,36 +8,12 @@ type Task = {
 };
 
 const sampleTasks: Task[] = [
-  {
-    title: "LinkedIn",
-    description: "Job Board",
-    status: "completed",
-  },
-  {
-    title: "Resume",
-    description: "Personal Item",
-    status: "completed",
-  },
-  {
-    title: "Cover Letter",
-    description: "Personal Item",
-    status: "active",
-  },
-  {
-    title: "GitHub",
-    description: "Skills",
-    status: "incomplete",
-  },
-  {
-    title: "Portfolio",
-    description: "Skills",
-    status: "incomplete",
-  },
-  {
-    title: "Algorithms",
-    description: "Practice",
-    status: "active",
-  },
+  { title: "LinkedIn", description: "Job Board", status: "completed" },
+  { title: "Resume", description: "Personal Item", status: "completed" },
+  { title: "Cover Letter", description: "Personal Item", status: "active" },
+  { title: "GitHub", description: "Skills", status: "incomplete" },
+  { title: "Portfolio", description: "Skills", status: "incomplete" },
+  { title: "Algorithms", description: "Practice", status: "active" },
 ];
 
 const TaskCard = ({
@@ -52,11 +26,11 @@ const TaskCard = ({
   status: "completed" | "incomplete" | "active";
 }) => {
   let currentStep = 0;
-  const total_steps = randomInt(1, 5);
+  const totalSteps = randomInt(1, 5);
 
-  if (status && status === "incomplete") currentStep = 0;
-  if (status && status === "completed") currentStep = total_steps;
-  if (status && status === "active") currentStep = randomInt(0, total_steps);
+  if (status === "incomplete") currentStep = 0;
+  if (status === "completed") currentStep = totalSteps;
+  if (status === "active") currentStep = randomInt(0, totalSteps);
 
   return (
     <Card className="rounded-xl bg-neutral-500/20 py-4">
@@ -64,7 +38,7 @@ const TaskCard = ({
         <p className="text-tiny font-bold">{title}</p>
         <small className="text-default-500">{description}</small>
         <h4 className="text-large font-bold">
-          Step {currentStep} of {total_steps}
+          Step {currentStep} of {totalSteps}
         </h4>
       </CardHeader>
       <CardBody className="overflow-visible"></CardBody>
@@ -93,13 +67,13 @@ const TaskList = ({
   );
 };
 
-const ListofCompletedTasks = ({ tasks }: { tasks: Task[] }) => {
+const ListOfCompletedTasks = ({ tasks }: { tasks: Task[] }) => {
   return (
     <TaskList tasks={tasks} filter={(task) => task.status === "completed"} />
   );
 };
 
-const ListofUnfinishedTasks = ({ tasks }: { tasks: Task[] }) => {
+const ListOfUnfinishedTasks = ({ tasks }: { tasks: Task[] }) => {
   return (
     <TaskList tasks={tasks} filter={(task) => task.status === "incomplete"} />
   );
@@ -110,13 +84,10 @@ const ListOfActiveTasks = ({ tasks }: { tasks: Task[] }) => {
 };
 
 function getProgress(tasks: Task[]) {
-  let value = 0;
-  tasks.forEach((task) => {
-    if (task.status === "completed") {
-      value += 1;
-    }
-  });
-  return (value / tasks.length) * 100;
+  const completedTasks = tasks.filter(
+    (task) => task.status === "completed",
+  ).length;
+  return (completedTasks / tasks.length) * 100;
 }
 
 export default function Onboarding() {
@@ -149,7 +120,7 @@ export default function Onboarding() {
               <p className="text-center text-xl font-semibold">
                 Not started ❌
               </p>
-              <ListofUnfinishedTasks tasks={sampleTasks} />
+              <ListOfUnfinishedTasks tasks={sampleTasks} />
             </div>
             <div className="flex flex-col gap-4 rounded-lg bg-gray-100/10 p-4 shadow">
               <p className="text-center text-xl font-semibold">
@@ -159,7 +130,7 @@ export default function Onboarding() {
             </div>
             <div className="flex flex-col gap-4 rounded-lg bg-gray-100/10 p-4 shadow">
               <p className="text-center text-xl font-semibold">Complete ✅</p>
-              <ListofCompletedTasks tasks={sampleTasks} />
+              <ListOfCompletedTasks tasks={sampleTasks} />
             </div>
           </div>
         </div>
