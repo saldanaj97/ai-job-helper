@@ -4,7 +4,7 @@ import { randomInt } from "crypto";
 type Task = {
   title: string;
   description: string;
-  status: "completed" | "incomplete" | "active";
+  status: "completed" | "incomplete" | "active"; // Change to 'complete' later on for consistency
 };
 
 const sampleTasks: Task[] = [
@@ -13,7 +13,7 @@ const sampleTasks: Task[] = [
   { title: "Cover Letter", description: "Personal Item", status: "active" },
   { title: "GitHub", description: "Skills", status: "incomplete" },
   { title: "Portfolio", description: "Skills", status: "incomplete" },
-  { title: "Algorithms", description: "Practice", status: "active" },
+  { title: "Algorithms", description: "Practice", status: "completed" },
 ];
 
 const TaskCard = ({
