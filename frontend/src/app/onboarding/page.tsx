@@ -1,5 +1,6 @@
 import { Card, CardBody, CardHeader, Progress } from "@nextui-org/react";
 import { randomInt } from "crypto";
+import Nav from "../_components/Navbar";
 
 type Task = {
   title: string;
@@ -33,7 +34,7 @@ const TaskCard = ({
   if (status === "active") currentStep = randomInt(0, totalSteps);
 
   return (
-    <Card className="rounded-xl bg-neutral-500/20 py-4">
+    <Card className="rounded-xl bg-neutral-300/40 py-4">
       <CardHeader className="flex-col items-start px-4 pb-0 pt-2">
         <p className="text-tiny font-bold">{title}</p>
         <small className="text-default-500">{description}</small>
@@ -93,6 +94,7 @@ function getProgress(tasks: Task[]) {
 export default function Onboarding() {
   return (
     <div className="flex max-w-full flex-col items-center justify-center gap-8 px-4 py-8">
+      <Nav />
       <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
         WannabeHired.ai
       </h1>
@@ -116,19 +118,19 @@ export default function Onboarding() {
 
         <div className="container mx-auto p-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="flex flex-col gap-4 rounded-lg bg-gray-100/10 p-4 shadow">
+            <div className="flex flex-col gap-4 rounded-lg bg-gray-100/10 p-4 shadow-xl">
               <p className="text-center text-xl font-semibold">
                 Not started ❌
               </p>
               <ListOfUnfinishedTasks tasks={sampleTasks} />
             </div>
-            <div className="flex flex-col gap-4 rounded-lg bg-gray-100/10 p-4 shadow">
+            <div className="flex flex-col gap-4 rounded-lg bg-gray-100/10 p-4 shadow-xl">
               <p className="text-center text-xl font-semibold">
                 In progress ✏️
               </p>
               <ListOfActiveTasks tasks={sampleTasks} />
             </div>
-            <div className="flex flex-col gap-4 rounded-lg bg-gray-100/10 p-4 shadow">
+            <div className="flex flex-col gap-4 rounded-lg bg-gray-100/10 p-4 shadow-xl">
               <p className="text-center text-xl font-semibold">Complete ✅</p>
               <ListOfCompletedTasks tasks={sampleTasks} />
             </div>
