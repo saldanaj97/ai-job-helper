@@ -5,7 +5,7 @@ import Nav from "../_components/Navbar";
 type Task = {
   title: string;
   description: string;
-  status: "completed" | "incomplete" | "active"; // Change to 'complete' later on for consistency
+  status: "completed" | "incomplete" | "active"; // TODO: Change to 'complete' later on for consistency
 };
 
 const sampleTasks: Task[] = [

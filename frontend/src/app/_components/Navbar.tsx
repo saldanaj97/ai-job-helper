@@ -34,7 +34,7 @@ const getDropdownClassNames = (theme: string | undefined) => {
 };
 
 export default function Nav() {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
 
   const icons = {
     chevron: (
@@ -97,7 +97,7 @@ export default function Nav() {
   };
 
   return (
-    <Navbar>
+    <Navbar className="p-4">
       <NavbarBrand>
         <p className="font-bold text-inherit">WannabeHired.ai</p>
       </NavbarBrand>

@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "~/trpc/react";
+import Nav from "./_components/Navbar";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
@@ -19,10 +20,8 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
         <Providers>
-          <TRPCReactProvider>
-            {/* <ThemeSwitcher /> */}
-            {children}
-          </TRPCReactProvider>
+          <Nav />
+          <TRPCReactProvider>{children}</TRPCReactProvider>
         </Providers>
       </body>
     </html>
