@@ -13,8 +13,8 @@ import {
   NavbarItem,
 } from "@nextui-org/react"
 import { useTheme } from "next-themes"
-import { Activity, ChevronDown, Flash, Lock, Scale, Server as ServerIcon, TagUser } from "./Icons"
-import { ThemeSwitcher } from "./ThemeSwitcher"
+import { Activity, ChevronDown, Flash, Lock, Scale, Server as ServerIcon, TagUser } from "../Icons"
+import { ThemeSwitcher } from "../ThemeSwitcher"
 
 // Utility function to get dynamic class names
 const getDropdownClassNames = (theme: string | undefined) => {

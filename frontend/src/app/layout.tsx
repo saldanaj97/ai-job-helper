@@ -3,7 +3,7 @@ import "./globals.css"
 import { GeistSans } from "geist/font/sans"
 import { type Metadata } from "next"
 
-import Nav from "./_components/Navbar"
+import Nav from "./_components/Navbar/Navbar"
 import Providers from "./providers/providers"
 
 export const metadata: Metadata = {
