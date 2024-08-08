@@ -22,9 +22,9 @@ export function ThemeSwitcher() {
         onClick={() => {
           setTheme("dark")
         }}
-        className="transform rounded-full p-2 transition-all hover:scale-110"
+        className="transform rounded-full transition-all hover:scale-110 bg-transparent"
       >
-        <HiSun size={20} />
+        <FaMoon size={20} />
       </Button>
     )
   }
@@ -34,9 +34,9 @@ export function ThemeSwitcher() {
       <Button
         isIconOnly
         onClick={() => setTheme("light")}
-        className="transform rounded-full p-2 transition-all hover:scale-110"
+        className="transform rounded-full transition-all hover:scale-110 bg-transparent"
       >
-        <FaMoon size={20} />
+        <HiSun size={20} />
       </Button>
     )
   }
