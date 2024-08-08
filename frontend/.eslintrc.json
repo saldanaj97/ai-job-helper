@@ -1,21 +1,23 @@
 {
-  "extends": [
-    "airbnb-typescript",
-    "plugin:prettier/recommended",
-    "next/core-web-vitals"
-  ],
   "env": {
     "browser": true,
-    "commonjs": true,
-    "es6": true,
-    "jest": true,
-    "node": true
+    "es2021": true
   },
-  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./frontend/tsconfig.json"
   },
+  "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
-    "react/jsx-props-no-spreading": "off"
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "react/react-in-jsx-scope": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }

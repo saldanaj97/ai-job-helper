@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import {
   Button,
@@ -11,33 +11,81 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-} from "@nextui-org/react"
-import { useTheme } from "next-themes"
-import { Activity, ChevronDown, Flash, Lock, Scale, Server as ServerIcon, TagUser } from "../Icons"
-import { ThemeSwitcher } from "../ThemeSwitcher"
-
-// Utility function to get dynamic class names
-const getDropdownClassNames = (theme: string | undefined) => {
-  return `w-[340px] rounded-xl shadow-lg ${
-    theme === "dark" ? "bg-black/70 text-neutral-100" : "bg-white/70 text-neutral-900"
-  }`
-}
+} from '@nextui-org/react';
+import {
+  Activity,
+  ChevronDown,
+  Flash,
+  Lock,
+  Scale,
+  Server as ServerIcon,
+  TagUser,
+} from '../Icons';
+import { ThemeSwitcher } from '../ThemeSwitcher';
 
 export default function Nav() {
-  const { theme } = useTheme()
-
   const icons = {
-    chevron: <ChevronDown fill="currentColor" size={16} height={16} width={16} />,
-    scale: <Scale className="text-warning" fill="currentColor" size={30} height={30} width={30} />,
-    lock: <Lock className="text-success" fill="currentColor" size={30} height={30} width={30} />,
-    activity: <Activity className="text-secondary" fill="currentColor" size={30} height={30} width={30} />,
-    flash: <Flash className="text-primary" fill="currentColor" size={30} height={30} width={30} />,
-    server: <ServerIcon className="text-success" fill="currentColor" size={30} height={30} width={30} />,
-    user: <TagUser className="text-danger" fill="currentColor" size={30} height={30} width={30} />,
-  }
+    chevron: (
+      <ChevronDown fill="currentColor" size={16} height={16} width={16} />
+    ),
+    scale: (
+      <Scale
+        className="text-warning"
+        fill="currentColor"
+        size={30}
+        height={30}
+        width={30}
+      />
+    ),
+    lock: (
+      <Lock
+        className="text-success"
+        fill="currentColor"
+        size={30}
+        height={30}
+        width={30}
+      />
+    ),
+    activity: (
+      <Activity
+        className="text-secondary"
+        fill="currentColor"
+        size={30}
+        height={30}
+        width={30}
+      />
+    ),
+    flash: (
+      <Flash
+        className="text-primary"
+        fill="currentColor"
+        size={30}
+        height={30}
+        width={30}
+      />
+    ),
+    server: (
+      <ServerIcon
+        className="text-success"
+        fill="currentColor"
+        size={30}
+        height={30}
+        width={30}
+      />
+    ),
+    user: (
+      <TagUser
+        className="text-danger"
+        fill="currentColor"
+        size={30}
+        height={30}
+        width={30}
+      />
+    ),
+  };
 
   return (
-    <Navbar className="p-4">
+    <Navbar className="bg-transparent p-4" isBlurred={false}>
       <NavbarBrand>
         <p className="font-bold text-inherit">WannabeHired.ai</p>
       </NavbarBrand>
@@ -56,7 +104,10 @@ export default function Nav() {
               </Button>
             </DropdownTrigger>
           </NavbarItem>
-          <DropdownMenu aria-label="ACME features" className={getDropdownClassNames(theme)}>
+          <DropdownMenu
+            aria-label="ACME features"
+            className="w-[340px] rounded-xl shadow-lg"
+          >
             <DropdownItem
               key="autoscaling"
               description="ACME scales apps to meet user demand, automagically, based on load."
@@ -114,5 +165,5 @@ export default function Nav() {
         <ThemeSwitcher />
       </NavbarContent>
     </Navbar>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-export const ChevronDown = ({ fill, size, height, width, ...props }) => {
+export function ChevronDown({ fill, size, height, width, ...props }) {
   return (
     <svg
       fill="none"
@@ -17,11 +17,11 @@ export const ChevronDown = ({ fill, size, height, width, ...props }) => {
         strokeWidth={1.5}
       />
     </svg>
-  )
+  );
 }
 
-export const Lock = ({ fill, size, height, width, ...props }) => {
-  const color = fill
+export function Lock({ fill, size, height, width, ...props }) {
+  const color = fill;
 
   return (
     <svg
@@ -64,10 +64,10 @@ export const Lock = ({ fill, size, height, width, ...props }) => {
         />
       </g>
     </svg>
-  )
+  );
 }
 
-export const Activity = ({ fill, size, height, width, ...props }) => {
+export function Activity({ fill, size, height, width, ...props }) {
   return (
     <svg
       height={size || height || 24}
@@ -76,16 +76,29 @@ export const Activity = ({ fill, size, height, width, ...props }) => {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g fill="none" stroke={fill} strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit={10} strokeWidth={1.5}>
+      <g
+        fill="none"
+        stroke={fill}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeMiterlimit={10}
+        strokeWidth={1.5}
+      >
         <path d="M6.918 14.854l2.993-3.889 3.414 2.68 2.929-3.78" />
         <path d="M19.668 2.35a1.922 1.922 0 11-1.922 1.922 1.921 1.921 0 011.922-1.922z" />
         <path d="M20.756 9.269a20.809 20.809 0 01.194 3.034c0 6.938-2.312 9.25-9.25 9.25s-9.25-2.312-9.25-9.25 2.313-9.25 9.25-9.25a20.931 20.931 0 012.983.187" />
       </g>
     </svg>
-  )
+  );
 }
 
-export const Flash = ({ fill = "currentColor", size, height, width, ...props }) => {
+export function Flash({
+  fill = 'currentColor',
+  size,
+  height,
+  width,
+  ...props
+}) {
   return (
     <svg
       fill="none"
@@ -104,10 +117,16 @@ export const Flash = ({ fill = "currentColor", size, height, width, ...props }) 
         strokeWidth={1.5}
       />
     </svg>
-  )
+  );
 }
 
-export const Server = ({ fill = "currentColor", size, height, width, ...props }) => {
+export function Server({
+  fill = 'currentColor',
+  size,
+  height,
+  width,
+  ...props
+}) {
   return (
     <svg
       fill="none"
@@ -125,10 +144,16 @@ export const Server = ({ fill = "currentColor", size, height, width, ...props })
         strokeWidth={1.5}
       />
     </svg>
-  )
+  );
 }
 
-export const TagUser = ({ fill = "currentColor", size, height, width, ...props }) => {
+export function TagUser({
+  fill = 'currentColor',
+  size,
+  height,
+  width,
+  ...props
+}) {
   return (
     <svg
       fill="none"
@@ -154,10 +179,16 @@ export const TagUser = ({ fill = "currentColor", size, height, width, ...props }
         strokeWidth={1.5}
       />
     </svg>
-  )
+  );
 }
 
-export const Scale = ({ fill = "currentColor", size, height, width, ...props }) => {
+export function Scale({
+  fill = 'currentColor',
+  size,
+  height,
+  width,
+  ...props
+}) {
   return (
     <svg
       fill="none"
@@ -174,7 +205,13 @@ export const Scale = ({ fill = "currentColor", size, height, width, ...props }) 
         strokeLinejoin="round"
         strokeWidth={1.5}
       />
-      <path d="M18 10V6h-4M6 14v4h4" stroke={fill} strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} />
+      <path
+        d="M18 10V6h-4M6 14v4h4"
+        stroke={fill}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+      />
     </svg>
-  )
+  );
 }

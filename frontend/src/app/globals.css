@@ -2,6 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+.light-background {
+  background: radial-gradient(50% 123.47% at 50% 50%, #00ff94 0%, #ff00c7 100%),
+    linear-gradient(121.28deg, #213100 0%, #ff0000 100%),
+    linear-gradient(360deg, #0029ff 0%, #8fff00 100%),
+    linear-gradient(114.9deg, #00c6a2 0%, #6a45a8 100%),
+    radial-gradient(100% 148.07% at 0% 0%, #ffffff 0%, #1dcd00 100%);
+  background-blend-mode: screen, color-dodge, overlay, difference, normal;
+}
+
+.dark-background {
+  background: linear-gradient(140.54deg, #608d00 0%, #d30000 72.37%),
+    linear-gradient(58.72deg, #0029ff 0%, #8fff00 100%),
+    radial-gradient(100% 164.72% at 100% 100%, #6100ff 0%, #00ff57 100%),
+    radial-gradient(100% 148.07% at 0% 0%, #fff500 0%, #51d500 100%);
+  background-blend-mode: color-dodge, overlay, difference, normal;
+}
+
+@keyframes bounceRotate {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
+.animate-bounceRotate {
+  animation: bounceRotate 2s infinite;
+}
+
 @keyframes gradientMove {
   0% {
     background-position: 0% 50%;
