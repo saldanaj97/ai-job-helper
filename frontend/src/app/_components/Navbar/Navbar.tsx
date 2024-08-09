@@ -90,7 +90,7 @@ export default function Nav() {
       maxWidth="sm"
     >
       <NavbarContent
-        className="mx-auto w-full max-w-4xl gap-4 rounded-full bg-neutral-200/20 sm:flex"
+        className="mx-auto w-full max-w-4xl gap-4 rounded-full sm:flex"
         justify="center"
       >
         <Dropdown className="backdrop-blur">
