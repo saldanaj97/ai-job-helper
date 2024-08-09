@@ -8,7 +8,6 @@ import {
   DropdownTrigger,
   Link,
   Navbar,
-  NavbarBrand,
   NavbarContent,
   NavbarItem,
 } from '@nextui-org/react';
@@ -21,7 +20,6 @@ import {
   Server as ServerIcon,
   TagUser,
 } from '../Icons';
-import { ThemeSwitcher } from '../ThemeSwitcher';
 
 export default function Nav() {
   const icons = {
@@ -85,18 +83,23 @@ export default function Nav() {
   };
 
   return (
-    <Navbar className="absolute bg-transparent" isBlurred={false}>
-      <NavbarBrand>
-        <p className="font-bold text-inherit">WannabeHired.ai</p>
-      </NavbarBrand>
-      <NavbarContent className="hidden w-full justify-center gap-4 sm:flex">
+    <Navbar
+      className="absolute mt-4 bg-transparent"
+      isBlurred={false}
+      position="sticky"
+      maxWidth="sm"
+    >
+      <NavbarContent
+        className="mx-auto w-full max-w-4xl gap-4 rounded-full bg-neutral-200/20 sm:flex"
+        justify="center"
+      >
         <Dropdown className="backdrop-blur">
-          <NavbarItem>
+          <NavbarItem className="ml-4">
             <DropdownTrigger>
               <Button
                 disableRipple
-                className="flex items-center p-0 data-[hover=true]:bg-transparent"
-                endContent={<div className="ml-1">{icons.chevron}</div>}
+                className="text-md flex items-center p-0 data-[hover=true]:bg-transparent"
+                endContent={icons.chevron}
                 radius="sm"
                 variant="light"
               >
@@ -150,19 +153,18 @@ export default function Nav() {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
+        <p>|</p>
         <NavbarItem>
           <Link color="foreground" href="#">
             Customers
           </Link>
         </NavbarItem>
-        <NavbarItem>
+        <p>|</p>
+        <NavbarItem className="mr-4">
           <Link color="foreground" href="#">
             Integrations
           </Link>
         </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end" className="items-center">
-        <ThemeSwitcher />
       </NavbarContent>
     </Navbar>
   );

@@ -21,7 +21,7 @@ export function ThemeSwitcher() {
       <Button
         isIconOnly
         onClick={() => setTheme('dark')}
-        className="transform rounded-full bg-transparent transition-all hover:scale-110"
+        className="absolute bottom-0 right-0 transform rounded-full bg-transparent transition-all hover:scale-110"
       >
         <FaMoon size={20} />
       </Button>
