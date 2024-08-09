@@ -85,7 +85,7 @@ export default function Nav() {
   };
 
   return (
-    <Navbar className="bg-transparent p-4" isBlurred={false}>
+    <Navbar className="absolute bg-transparent" isBlurred={false}>
       <NavbarBrand>
         <p className="font-bold text-inherit">WannabeHired.ai</p>
       </NavbarBrand>

@@ -4,10 +4,10 @@ import Hero from './_components/Hero/hero';
 import Nav from './_components/Navbar/Navbar';
 
 export default function Home() {
-  const { theme } = useTheme();
+  const { systemTheme } = useTheme();
 
-  const backgroundClass =
-    theme === 'light' ? 'light-background' : 'dark-background';
+  let backgroundClass =
+    systemTheme === 'dark' ? 'dark-background' : 'light-background';
 
   return (
     <main
