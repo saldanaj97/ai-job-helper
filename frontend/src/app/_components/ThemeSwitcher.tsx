@@ -21,9 +21,9 @@ export function ThemeSwitcher() {
       <Button
         isIconOnly
         onClick={() => setTheme('dark')}
-        className="absolute bottom-0 right-0 transform rounded-full bg-transparent transition-all hover:scale-110"
+        className="rounded-full bg-transparent transition-all hover:scale-110"
       >
-        <FaMoon size={20} />
+        <FaMoon size={24} />
       </Button>
     );
   }
@@ -33,15 +33,15 @@ export function ThemeSwitcher() {
       <Button
         isIconOnly
         onClick={() => setTheme('light')}
-        className="transform rounded-full bg-transparent transition-all hover:scale-110"
+        className="rounded-full bg-transparent transition-all hover:scale-110"
       >
-        <HiSun size={20} />
+        <HiSun size={24} />
       </Button>
     );
   }
 
   return (
-    <div className="">
+    <div className="fixed bottom-4 right-4 z-50">
       {theme === 'light' ? <LightModeButton /> : <DarkModeButton />}
     </div>
   );

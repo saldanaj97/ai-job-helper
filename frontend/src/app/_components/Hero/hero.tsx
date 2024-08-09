@@ -3,7 +3,7 @@ import { FaArrowDown } from 'react-icons/fa';
 
 export default function Hero() {
   return (
-    <div className="container mx-auto flex h-screen max-w-3xl flex-col items-center justify-center overflow-hidden text-center">
+    <div className="container mx-auto flex max-w-3xl flex-1 flex-col items-center justify-center text-center">
       <h1 className="mb-4 text-4xl font-semibold tracking-tight sm:text-6xl">
         Elevate Your Job Search Experience
       </h1>

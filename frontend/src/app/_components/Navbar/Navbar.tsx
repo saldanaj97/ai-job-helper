@@ -1,171 +1,59 @@
 'use client';
 
-import {
-  Button,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-  Link,
-  Navbar,
-  NavbarContent,
-  NavbarItem,
-} from '@nextui-org/react';
-import {
-  Activity,
-  ChevronDown,
-  Flash,
-  Lock,
-  Scale,
-  Server as ServerIcon,
-  TagUser,
-} from '../Icons';
+import { useTheme } from 'next-themes';
 
-export default function Nav() {
-  const icons = {
-    chevron: (
-      <ChevronDown fill="currentColor" size={16} height={16} width={16} />
-    ),
-    scale: (
-      <Scale
-        className="text-warning"
-        fill="currentColor"
-        size={30}
-        height={30}
-        width={30}
-      />
-    ),
-    lock: (
-      <Lock
-        className="text-success"
-        fill="currentColor"
-        size={30}
-        height={30}
-        width={30}
-      />
-    ),
-    activity: (
-      <Activity
-        className="text-secondary"
-        fill="currentColor"
-        size={30}
-        height={30}
-        width={30}
-      />
-    ),
-    flash: (
-      <Flash
-        className="text-primary"
-        fill="currentColor"
-        size={30}
-        height={30}
-        width={30}
-      />
-    ),
-    server: (
-      <ServerIcon
-        className="text-success"
-        fill="currentColor"
-        size={30}
-        height={30}
-        width={30}
-      />
-    ),
-    user: (
-      <TagUser
-        className="text-danger"
-        fill="currentColor"
-        size={30}
-        height={30}
-        width={30}
-      />
-    ),
-  };
+export default function CustomNavbar() {
+  const { theme, systemTheme } = useTheme();
+
+  // Determine the current theme
+  const currentTheme = theme === 'system' ? systemTheme : theme;
+
+  // Apply the background based on the theme
+  const navbarBackgroundClass =
+    currentTheme === 'light' ? 'bg-neutral-800' : 'bg-white';
 
   return (
-    <Navbar
-      className="absolute mt-4 bg-transparent"
-      isBlurred={false}
-      position="sticky"
-      maxWidth="sm"
-    >
-      <NavbarContent
-        className="mx-auto w-full max-w-4xl gap-4 rounded-full sm:flex"
-        justify="center"
-      >
-        <Dropdown className="backdrop-blur">
-          <NavbarItem className="ml-4">
-            <DropdownTrigger>
-              <Button
-                disableRipple
-                className="text-md flex items-center p-0 data-[hover=true]:bg-transparent"
-                endContent={icons.chevron}
-                radius="sm"
-                variant="light"
+    <nav className="absolute right-0 top-0 z-50 max-w-full bg-transparent">
+      <div className="flex justify-end">
+        {/* Navbar container with the cut-in effect */}
+        <div
+          className={`relative flex items-center gap-4 rounded-bl-[50px] ${navbarBackgroundClass} p-4 sm:flex`}
+        >
+          <div className="dropdown">
+            <button className="text-md ml-4 flex items-center text-background">
+              Features
+              <svg
+                className="ml-2"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 16 16"
               >
-                Features
-              </Button>
-            </DropdownTrigger>
-          </NavbarItem>
-          <DropdownMenu
-            aria-label="ACME features"
-            className="w-[340px] rounded-xl shadow-lg"
-          >
-            <DropdownItem
-              key="autoscaling"
-              description="ACME scales apps to meet user demand, automagically, based on load."
-              startContent={icons.scale}
-              className="p-4"
-            >
-              Autoscaling
-            </DropdownItem>
-            <DropdownItem
-              key="usage_metrics"
-              description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
-              startContent={icons.activity}
-              className="p-4"
-            >
-              Usage Metrics
-            </DropdownItem>
-            <DropdownItem
-              key="production_ready"
-              description="ACME runs on ACME, join us and others serving requests at web scale."
-              startContent={icons.flash}
-              className="p-4"
-            >
-              Production Ready
-            </DropdownItem>
-            <DropdownItem
-              key="99_uptime"
-              description="Applications stay on the grid with high availability and high uptime guarantees."
-              startContent={icons.server}
-              className="p-4"
-            >
-              +99% Uptime
-            </DropdownItem>
-            <DropdownItem
-              key="supreme_support"
-              description="Overcome any challenge with a supporting team ready to respond."
-              startContent={icons.user}
-              className="p-4"
-            >
-              +Supreme Support
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
-        <p>|</p>
-        <NavbarItem>
-          <Link color="foreground" href="#">
+                <path
+                  fillRule="evenodd"
+                  d="M1.293 4.793a1 1 0 011.414 0L8 10.086l5.293-5.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414z"
+                />
+              </svg>
+            </button>
+            <ul className="dropdown-menu absolute mt-2 hidden w-[340px] rounded-xl bg-white text-background">
+              <li className="p-4 hover:bg-gray-200">Autoscaling</li>
+              <li className="p-4 hover:bg-gray-200">Usage Metrics</li>
+              <li className="p-4 hover:bg-gray-200">Production Ready</li>
+              <li className="p-4 hover:bg-gray-200">+99% Uptime</li>
+              <li className="p-4 hover:bg-gray-200">+Supreme Support</li>
+            </ul>
+          </div>
+          <p className="text-background">|</p>
+          <a className="text-background" href="#">
             Customers
-          </Link>
-        </NavbarItem>
-        <p>|</p>
-        <NavbarItem className="mr-4">
-          <Link color="foreground" href="#">
+          </a>
+          <p className="text-background">|</p>
+          <a className="text-background" href="#">
             Integrations
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-    </Navbar>
+          </a>
+        </div>
+      </div>
+    </nav>
   );
 }
